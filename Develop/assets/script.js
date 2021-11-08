@@ -44,19 +44,24 @@ function saveData(){
     });
 };
 
-// //maintain data on refresh
-// function maintainData(){
-//     $( ".description").each(function(){
-//         var currentHour = $(this).text();
-//         var storedText = localStorge.getItem(currentHour);
+//maintain data on refresh
+function maintainData(){
+    $(".hour").each(function(){
 
-//         if (storedText !== null){
-//             $(this).siblings(".description").val(storedText);
-//         }
-//     })
-// };
+        let savedHour = $(this).text();
+        //  console.log(savedHour);
+
+        let storedText = localStorage.getItem(savedHour);
+        //  console.log(storedText);
+
+        if (storedText !== null){
+            $(this).siblings(".description").val(storedText);
+        }
+    });   
+
+ };
 
 //run function
 textAreaColor()
 saveData()
-
+maintainData()
